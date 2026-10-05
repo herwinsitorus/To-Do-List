@@ -20,7 +20,7 @@ function perbaruiJumlah() {
 function tambahCatatan() {
   const isiTeks = inputCatatan.value.trim();
   if (isiTeks === "") {
-    alert("Catatan tidak boleh kosong!");
+    alert("The note cannot be empty!");
     return;
   }
 
@@ -35,9 +35,9 @@ function tambahCatatan() {
   
   checkboxSelesai.addEventListener("change", function () {
     if (this.checked) {
-      liBaru.classList.add("completed"); // Tambahkan class completed jika dicentang
+      liBaru.classList.add("completed");
     } else {
-      liBaru.classList.remove("completed"); // Hapus class jika uncentang
+      liBaru.classList.remove("completed");
     }
   });
 
@@ -48,7 +48,7 @@ function tambahCatatan() {
 
   const btnHapus = document.createElement("button");
   btnHapus.className = "btn-hapus";
-  btnHapus.textContent = "Hapus";
+  btnHapus.textContent = "Delete";
   btnHapus.addEventListener("click", function () {
     liBaru.remove();
     totalCatatan--;
