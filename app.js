@@ -27,12 +27,28 @@ function tambahCatatan() {
   const liBaru = document.createElement("li");
   liBaru.className = "note-item";
 
+  const taskContent = document.createElement("div");
+  taskContent.className = "task-content";
+
+  const checkboxSelesai = document.createElement("input");
+  checkboxSelesai.type = "checkbox";
+  
+  checkboxSelesai.addEventListener("change", function () {
+    if (this.checked) {
+      liBaru.classList.add("completed"); // Tambahkan class completed jika dicentang
+    } else {
+      liBaru.classList.remove("completed"); // Hapus class jika uncentang
+    }
+  });
+
   const teksCatatan = document.createElement("span");
   teksCatatan.textContent = isiTeks;
 
+  taskContent.append(checkboxSelesai, teksCatatan);
+
   const btnHapus = document.createElement("button");
   btnHapus.className = "btn-hapus";
-  btnHapus.textContent = "Delete";
+  btnHapus.textContent = "Hapus";
   btnHapus.addEventListener("click", function () {
     liBaru.remove();
     totalCatatan--;
@@ -40,8 +56,9 @@ function tambahCatatan() {
     console.log(`[DOM] Catatan "${isiTeks}" dihapus`);
   });
 
-  liBaru.append(teksCatatan, btnHapus);
+  liBaru.append(taskContent, btnHapus);
   daftarCatatan.appendChild(liBaru);
+  
   inputCatatan.value = "";
   totalCatatan++;
   perbaruiJumlah();
