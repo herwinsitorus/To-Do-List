@@ -46,9 +46,8 @@ function tambahCatatan() {
   totalCatatan++;
   perbaruiJumlah();
   console.log(`[DOM] Catatan Baru ditambahkan: ${isiTeks}`);
-} // <-- KURUNG KURAWAL DITUTUP DI SINI
+}
 
-// Event Listener sekarang berada di luar fungsi utama
 btnTambah.addEventListener("click", function () {
   tambahCatatan();
 });
